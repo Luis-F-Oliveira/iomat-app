@@ -1,0 +1,18 @@
+{
+  "name": "facilita-diario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/main.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Luis Felipe de Oliveira",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.1.0"
+  },
+  "dependencies": {
+    "electron-cookies": "^1.1.0"
+  }
+}
