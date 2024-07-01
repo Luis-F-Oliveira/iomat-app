@@ -1,10 +1,16 @@
+import { config } from 'dotenv'
 import { app, BrowserWindow, session } from 'electron'
 import { fileURLToPath } from 'url'
 import { dirname } from 'path'
+import CryptoJS from 'crypto-js'
 import path from 'path'
+
+config()
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+let app_key = process.env.APP_KEY
+app_key = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(app_key))
 
 const createWindow = async () => {
   const win = new BrowserWindow({
@@ -34,7 +40,7 @@ app.on('ready', async () => {
   const cookie = {
     url: 'http://localhost:3000',
     name: 'application',
-    value: 'on-electron',
+    value: app_key,
   }
   await session.defaultSession.cookies.set(cookie)
   createWindow()
